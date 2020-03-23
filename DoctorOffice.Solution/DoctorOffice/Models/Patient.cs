@@ -6,9 +6,14 @@ namespace DoctorOffice.Models
   public class Patient
   {
     public int PatientId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string PhoneNumber { get; set; }
+    public string Allergies { get; set; }
+    public string MedicalHistory { get; set; }
     public ICollection<DoctorPatient> Doctors { get; set; }
 
-    public ClassName()
+    public Patient()
     {
       this.Doctors = new HashSet<DoctorPatient>();
     }

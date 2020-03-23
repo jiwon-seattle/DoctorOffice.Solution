@@ -12,7 +12,7 @@
 ---
 ## 1. User Flow
 
-1. As an administrator, I want to be able to enter a doctor, so I can keep track of all the doctors in the hospital. I should be able to enter their contact information such as first name, last name, specialty, pager number, hire date.
+1. As an administrator, I want to be able to enter a doctor, so I can keep track of all the doctors in the hospital. I should be able to enter their contact information such as first name, last name, specialty, pager number, hire date, and if they are accepting new patients.
 2. As an administrator, I want to be able to enter a patient, so I can keep track of all the patients coming to the hospital. I should be able to enter their contact information such as first name, last name, date of birth, medical record number (MRN#), phone number, allergies, medical history.
 3. As an administrator, I want to assign patients to the doctors, so I can keep track of which patients are seeing specific doctors.
 4. As an adiministrator, I want to assign doctors to the patients, so I can keep track of which specialties patients are seeing.
@@ -21,6 +21,7 @@
 Parking Lot:
 - Add a class for Appointments(doesn't allow conflicts)
 - As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
+- Change starting number of auto-increment ID number
 
 ## 2. Development
 ### Tech stack:

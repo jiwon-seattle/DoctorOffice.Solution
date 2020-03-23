@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DoctorOffice.Models
 {
-  public class DoctorOffice : DbContext
+  public class DoctorOfficeContext : DbContext
   {
     public virtual DbSet<Doctor> Doctors { get; set; }
     public DbSet<Patient> Patients { get; set; }
