@@ -1,3 +1,12 @@
+body {
+  font-family: 'Bellota Text', cursive;
+  font-size: 12pt;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
 label {
   margin: 10px;
 }

@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title ="Edit Doctor";
+}
+
+@model DoctorOffice.Models.Doctor;
+
+<div class="doctorEdit">
+  <h1><strong>Edit</strong></h1>
+  <h4>Edit this Doctor : @Html.DisplayFor(model => model.LastName)</h4>
+
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.DoctorId)
+
+    @Html.Label("First Name")
+    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @type="text", @class="form-control" } })
+
+    @Html.Label("Last Name")
+    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @type="text", @class="form-control" } })
+
+    @Html.Label("Specialty")
+    @Html.EditorFor(model => model.Specialty, new { htmlAttributes = new { @type="text", @class="form-control" } })
+
+    @Html.Label("Pager Number")
+    @Html.EditorFor(model => model.PagerNumber, new { htmlAttributes = new { @type="tel", @maxlength="10", @class = "form-control" } })
+
+    @Html.Label("Accepting New Patients?")
+    @Html.CheckBoxFor(model => model.AcceptNewPatients, new { htmlAttributes = new { @value=true, @class = "form-control" } })
+    <br>
+    @Html.Label("Hire Date")
+    @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @type="date", @class = "form-control" } })
+
+    <input type="submit" value="Save" class="btn btn-primary">
+  }
+
+  <p>@Html.ActionLink("Back to Doctors", "Index")</p>
+</div>

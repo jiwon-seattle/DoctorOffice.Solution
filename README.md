@@ -19,6 +19,7 @@
 5. As an administrator, I want to be able to see a list of all doctors and their specialties, so that I know which medical specialties are offered in the hospital.
 
 Parking Lot:
+- Fix the date placeholder(?) in Doctor Edit() View
 - Add a class for Appointments(doesn't allow conflicts)
 - As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
 - Change starting number of auto-increment ID number

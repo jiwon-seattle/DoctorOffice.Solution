@@ -43,14 +43,19 @@ namespace DoctorOffice.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Details(int id)
-    // {
-    //   var thisCategory = _db.Categories
-    //       .Include(category => category.Items)
-    //       .ThenInclude(join => join.Item)
-    //       .FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctors => doctors.DoctorId == id);
+      return View(thisDoctor);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Doctor doctor)
+    {
+      _db.Entry(doctor).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult Edit(int id)
     // {
