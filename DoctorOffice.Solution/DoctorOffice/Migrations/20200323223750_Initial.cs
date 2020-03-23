@@ -34,6 +34,7 @@ namespace DoctorOffice.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
+                    DOB = table.Column<DateTime>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: true),
                     Allergies = table.Column<string>(nullable: true),
                     MedicalHistory = table.Column<string>(nullable: true)

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorOffice.Migrations
 {
     [DbContext(typeof(DoctorOfficeContext))]
-    [Migration("20200323213557_Initial")]
+    [Migration("20200323223750_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,8 @@ namespace DoctorOffice.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Allergies");
+
+                    b.Property<DateTime>("DOB");
 
                     b.Property<string>("FirstName");
 

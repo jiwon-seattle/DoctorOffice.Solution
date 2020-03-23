@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Doctor Details";
+}
+
+@model DoctorOffice.Models.Doctor
+
+<div class="doctorDetails">
+  <h1><strong>Doctor Details</h1></strong>
+  <h3>About Dr. @Html.DisplayFor(model => model.LastName):</h3>
+
+  <p>Name : @Model.FirstName @Model.LastName</p>
+  <p>Specialty : @Model.Specialty</p>
+  <p>Pager Number : @Model.PagerNumber</p>
+  <p>Accepting new patients : 
+    @if (@Model.AcceptNewPatients == true)
+    {
+      <span class="checkmark">✔</span>
+    }
+    else 
+    {
+      <span class="wrongmark">✘</span>
+    }
+  </p>
+  <p>Hire Date : @Model.HireDate.Month/@Model.HireDate.Day/@Model.HireDate.Year</p>
+  
+  <hr>
+  <p>@Model.Patients.Count patient(s) registered for this provider.</p>
+ 
+  @if (@Model.Patients.Count > 0)
+  {
+    <p>Patients seeing Dr. @Html.DisplayFor(model => model.LastName) :</p>
+    @foreach(var join in Model.Patients)
+    {
+      <p>@join.Patient.LastName, @join.Patient.FirstName | Date of Birth: @join.Patient.DOB.Month/@join.Patient.DOB.Day/@join.Patient.DOB.Year</p>
+    }
+  }
+
+  <p>@Html.ActionLink("Back to Doctor List", "Index")</p>
+  <p>@Html.ActionLink("Edit information", "Edit", new { id = Model.DoctorId})</p>
+  <p>@Html.ActionLink("Delete information", "Delte", new { id = Model.DoctorId})</p>
+</div>

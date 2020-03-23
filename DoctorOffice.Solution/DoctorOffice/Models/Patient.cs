@@ -8,6 +8,7 @@ namespace DoctorOffice.Models
     public int PatientId { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
+    public DateTime DOB { get; set; }
     public string PhoneNumber { get; set; }
     public string Allergies { get; set; }
     public string MedicalHistory { get; set; }

@@ -64,6 +64,8 @@ namespace DoctorOffice.Migrations
 
                     b.Property<string>("Allergies");
 
+                    b.Property<DateTime>("DOB");
+
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
