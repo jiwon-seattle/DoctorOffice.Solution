@@ -1,17 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ProjectName.Models;
+using DoctorOffice.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectName.Controllers
+namespace DoctorOffice.Controllers
 {
-  public class ClassesNameController : Controller
+  public class PatientsController : Controller
   {
-    private readonly ProjectNameContext _db;
+    private readonly DoctorOfficeContext _db;
 
-    public ClassesNameController(ProjectNameContext db)
+    public PatientsController(DoctorOfficeContext db)
     {
       _db = db;
     }
