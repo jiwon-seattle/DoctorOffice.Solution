@@ -16,24 +16,23 @@ namespace DoctorOffice.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Category> model = _db.Categories.ToList();
-    //   return View(model);
-    // }
+    public ActionResult Index()
+    {
+      return View(_db.Doctors.ToList());
+    }
 
-    // public ActionResult Create()
-    // {
-    //   return View();
-    // }
+    public ActionResult Create()
+    {
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Category category)
-    // {
-    //   _db.Categories.Add(category);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Doctor doctor)
+    {
+      _db.Doctors.Add(doctor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult Details(int id)
     // {

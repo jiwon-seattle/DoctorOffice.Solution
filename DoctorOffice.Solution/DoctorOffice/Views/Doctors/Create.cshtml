@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Add New Doctor";
+}
+
+@model DoctorOffice.Models.Doctor
+
+<div class="doctorCreate">
+  <h1>Add New Doctor</h1>
+
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.FirstName, new { @type="text", @placeholder="Jane", @required = "required", @class="form-control"})
+
+    @Html.LabelFor(model => model.LastName)
+    @Html.TextBoxFor(model => model.LastName, new { @type="text", @placeholder="Doe",@required = "required", @class="form-control"})
+
+    @Html.LabelFor(model => model.Specialty)
+    @Html.TextAreaFor(model => model.Specialty, new { @type="text", @placeholder="Pediatrician", @required = "required", @class="form-control"})
+
+    @Html.LabelFor(model => model.PagerNumber)
+    @Html.TextBoxFor(model => model.PagerNumber, new { @type="tel", @placeholder="206-368-6000", @maxlength="10", @required = "required", @class="form-control"})
+
+    @Html.Label("Accepting New Patients?")
+    @Html.CheckBoxFor(model => model.AcceptNewPatients, true)
+    <br>
+    @Html.LabelFor(model => model.HireDate)
+    @Html.TextBoxFor(model => model.HireDate, new { @type="date", @required = "required", @class="form-control"})
+
+    <input type="submit" value="Add New Doctor" class="btn btn-lg"/>
+  }
+
+  <p>@Html.ActionLink("Back To List of Doctors", "Index", "Doctors")</p>
+  <p>@Html.ActionLink("Back To Home", "Index", "Home")</p>
+
+</div>

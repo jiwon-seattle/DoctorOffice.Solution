@@ -22,6 +22,7 @@ Parking Lot:
 - Add a class for Appointments(doesn't allow conflicts)
 - As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
 - Change starting number of auto-increment ID number
+- Separate Specialty into a different class? Make a join class of DoctorSpecialty
 
 ## 2. Development
 ### Tech stack:
