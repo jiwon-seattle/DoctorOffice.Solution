@@ -17,16 +17,17 @@
 3. As an administrator, I want to assign patients to the doctors, so I can keep track of which patients are seeing specific doctors.
 4. As an adiministrator, I want to assign doctors to the patients, so I can keep track of which specialties patients are seeing.
 5. As an administrator, I want to be able to see a list of all doctors and their specialties, so that I know which medical specialties are offered in the hospital.
+6. As an administrator, I want new patients to have unique Medical Record Numbers (MRN) that auto-increments starting from 202003000 so that each patient can have a unique identifier.
+7. As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
 
 Parking Lot:
-- Fix the date placeholder(?) in Doctor Edit() View
 - Add a class for Appointments(doesn't allow conflicts)
-- As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
-- Change starting number of auto-increment ID number
 - Separate Specialty into a different class? Make a join class of DoctorSpecialty
 
 Improvement Opportunities:
 - In EDIT Doctor functionality, we were able to format the date display to MM/DD/YYYY. However, the input form type is not date type so user will have to type in the date if they need to edit it.
+- Use try/catch functions to make sure there is no duplicates added to the database.
+
 
 ## 2. Development
 ### Tech stack:

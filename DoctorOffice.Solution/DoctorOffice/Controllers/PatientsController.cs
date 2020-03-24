@@ -53,13 +53,8 @@ namespace DoctorOffice.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Patient patient, int doctorId)
+    public ActionResult Edit(Patient patient)
     {
-      if (doctorId != 0)
-      {
-        // _db.DoctorPatients.RemoveRange(_db.DoctorPatients);
-        _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = doctorId, PatientId = patient.PatientId});
-      }
       _db.Entry(patient).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -110,25 +105,6 @@ namespace DoctorOffice.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-
-    // public ActionResult AddCategory(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View(thisItem);
-    // }
-
-    // [HttpPost]
-    // public ActionResult AddCategory(Item item, int CategoryId)
-    // {
-    //   if (CategoryId != 0)
-    //   {
-    //     _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
 
   }
 }

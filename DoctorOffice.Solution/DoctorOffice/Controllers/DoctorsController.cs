@@ -71,6 +71,39 @@ namespace DoctorOffice.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
+    public ActionResult Search()
+    {
+      List<Doctor> allDoctors = _db.Doctors.ToList();
+      List<string> specialties = new List<string>{};
+      foreach (Doctor doctor in allDoctors)
+      {
+        specialties.Add(doctor.Specialty);
+      }
+      List<string> removedDuplicates = specialties.Distinct().ToList();
+      ViewBag.Specialties = removedDuplicates;
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Search(Doctor searchDoctor)
+    {
+      List<Doctor> foundDoctors = _db.Doctors.ToList();
+
+      if (searchDoctor.LastName != null)
+      {
+        string nameSearch = searchDoctor.LastName.ToLower();
+        foundDoctors = foundDoctors.FindAll(doctors => doctors.LastName.ToLower().Equals(nameSearch) == true);
+      }
+      if (searchDoctor.Specialty != null)
+      {
+        foundDoctors = foundDoctors.FindAll(doctors => doctors.Specialty.Equals(searchDoctor.Specialty) == true);
+      }
+     
+      // List<Doctor> thisDoctors = _db.Doctors.Where(doctor => doctor.LastName == lastName).ToList();
+      return View("SearchResult", foundDoctors);
+    }
+
 
     
   }

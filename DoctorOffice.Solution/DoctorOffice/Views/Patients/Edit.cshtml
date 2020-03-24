@@ -14,9 +14,6 @@
 {
   @Html.HiddenFor(model => model.PatientId)
 
-  @Html.Label("Select Doctor")
-  @Html.DropDownList("DoctorId")
-
   <br>
   @Html.Label("First Name")
   @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @type="text", @class="form-control" } })

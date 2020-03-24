@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Search Doctors";
+}
+
+@using DoctorOffice.Models
+@model DoctorOffice.Models.Doctor
+
+<div class="doctorSearch">
+  <h2><strong>Search a Doctor</strong></h2>
+
+  <div id="doctorSearchForm">
+    <h4>Enter your search criteria below:</h4>
+    @using (Html.BeginForm())
+    {
+      @Html.Label("By Last Name")
+      <p><strong>
+      @Html.TextBoxFor((model => model.LastName), new { @class="form-control"})
+      </p>
+
+      @Html.Label("By Specialty")
+      <p><strong>
+      @Html.DropDownListFor(model => model.Specialty, new SelectList(@ViewBag.Specialties), "Select Specialty")
+      </p>
+
+      <input class="btn btn-primary" type="submit" value="Search" style="cursor: pointer">
+    }
+  </div>
+
+</div>
