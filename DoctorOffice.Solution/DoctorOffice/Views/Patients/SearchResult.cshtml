@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Search Results Patients";
+}
+
+@using DoctorOffice.Models;
+@model List<DoctorOffice.Models.Patient>
+
+<div class="patientSearchResult">
+  <h2><strong>Search Results of Patients</strong></h2>
+
+  <div id="patientSearchLists">
+    @if (Model.Count == 0)
+    {
+      <h3>No patients have been found</h3>
+    }
+    @foreach (Patient patient in Model)
+    {
+      <p>@Html.ActionLink($"{patient.LastName}", "Details", new {id = patient.PatientId})</p>
+
+    }
+  </div>
+
+  <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+
+</div>

@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Search Patients";
+}
+
+@using DoctorOffice.Models
+@model DoctorOffice.Models.Patient
+
+<div class="patientSearch">
+  <h2><strong>Search a Patient</strong></h2>
+
+  <div id="patientSearchForm">
+    <h4>Enter your search criteria below:</h4>
+    @using (Html.BeginForm())
+    {
+      @Html.Label("By Last Name")
+      <p><strong>
+      @Html.TextBoxFor((model => model.LastName), new { @class="form-control"})
+      </p>
+
+      @Html.Label("By DOB")
+      <p><strong>
+      @Html.TextBoxFor(model => model.DOB, "{0:MM-dd-yyyy}")
+      </p>
+
+
+      <input class="btn btn-primary" type="submit" value="Search" style="cursor: pointer">
+    }
+  </div>
+
+</div>

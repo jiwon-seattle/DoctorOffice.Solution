@@ -106,5 +106,34 @@ namespace DoctorOffice.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Search()
+    {
+      List<Patient> allPatients = _db.Patients.ToList();
+      return View();
+    }
+
+    // [HttpPost]
+    // public ActionResult Search(string lastName, DateTime DOB)
+    // {
+    //   List<Patient> thisPatients = _db.Patients.ToList();
+    //   List<Patient> foundPatients = new List<Patient>();
+
+    //   if (lastName != null && DOB != null)
+    //   {
+    //     thisPatients = thisPatients.Where(patient => patient.LastName == lastName).ToList();
+    //     List<Patient> foundPatients = thisPatients;
+    //     thisPatients = thisPatients.Where(patient => patient.DOB == DOB).ToList();
+    //   }
+
+    //   // WHERE System.Linq - specific to LINQ so always have to covert to List before we can pass it on to View
+    //   // FINDALL System.Collections.Generic - specific to a List
+
+    //   // if (DOB != null)
+    //   // {
+    //   //   thisPatients = thisPatients.Where(patient => patient.DOB == DOB).ToList();
+    //   // }
+    //   return View("SearchResult", thisPatients);
+    // }
+
   }
 }
