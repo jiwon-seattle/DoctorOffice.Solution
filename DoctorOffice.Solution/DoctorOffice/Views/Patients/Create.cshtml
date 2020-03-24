@@ -1,19 +1,33 @@
 @{
   Layout = "_Layout";
-  ViewBag.Title = "";
+  ViewBag.Title = "Create Patient";
 }
 
 @model DoctorOffice.Models.Patient
 
-@* <h4>Add a new task</h4>
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+<div class="patientCreate">
+  <h1><strong>Add Patient</h1></strong>
+  @using (Html.BeginForm())
+  {
+    @Html.Label("First Name")
+    @Html.TextBoxFor(model => model.FirstName, new { @type="text", @placeholder="John",@required = "required", @class="form-control"})
 
-  @Html.Label("Select category")
-  @Html.DropDownList("CategoryId")
+    @Html.Label("Last Name")
+    @Html.TextBoxFor(model => model.LastName, new { @type="text", @placeholder="Doe",@required = "required", @class="form-control"})
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
-}
-<p>@Html.ActionLink("Show all items", "Index")</p> *@
+    @Html.Label("Date of Birth")
+    @Html.TextBoxFor(model => model.DOB, new { @type="date", @placeholder="Doe",@required = "required", @class="form-control"})
+
+    @Html.Label("Phone Number")
+    @Html.TextBoxFor(model => model.PhoneNumber, new { @type="number", @placeholder="1234567890",@required = "required", @class="form-control"})
+    
+    @Html.Label("Allergies")
+    @Html.TextBoxFor(model => model.Allergies, new { @type="text", @placeholder="Bees",@required = "required", @class="form-control"})
+   
+    @Html.Label("Medical History")
+    @Html.TextBoxFor(model => model.MedicalHistory, new { @type="text", @placeholder="Asthma",@required = "required", @class="form-control"})
+  
+    <input type="submit" value="Add New Patient" class="btn btn-primary" />
+  }
+
+</div>

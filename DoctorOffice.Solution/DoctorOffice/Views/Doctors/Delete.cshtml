@@ -6,12 +6,13 @@
 @model DoctorOffice.Models.Doctor
 
 <h2>Are you sure you want to remove this Doctor?</h2>
-@* 
-@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
 
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" />
-}
+<div class="doctorDetails">
+  <h1><strong>Doctor @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1></strong>
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" class="btn btn-primary" />
+  }
+</div>
 
-@Html.ActionLink("Back to List", "Index") *@
+@Html.ActionLink("Back to List", "Index")

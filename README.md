@@ -25,6 +25,9 @@ Parking Lot:
 - Change starting number of auto-increment ID number
 - Separate Specialty into a different class? Make a join class of DoctorSpecialty
 
+Improvement Opportunities:
+- In EDIT Doctor functionality, we were able to format the date display to MM/DD/YYYY. However, the input form type is not date type so user will have to type in the date if they need to edit it.
+
 ## 2. Development
 ### Tech stack:
 + [.NET CORE](https://dotnet.microsoft.com/download/dotnet-core/) for package management

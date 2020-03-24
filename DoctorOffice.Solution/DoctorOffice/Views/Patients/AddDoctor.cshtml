@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Assign Doctor to Patient";
+}
+
+@model DoctorOffice.Models.Patient
+
+<div class="assignDoctor">
+  <h2>Assign a Doctor</h2>
+
+  <h4>Assign a doctor to this patient: @Html.DisplayFor(model => model.LastName), @Html.DisplayFor(model => model.FirstName)</h4>
+
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.PatientId)
+
+    @Html.Label("Select doctor")
+    @Html.DropDownList("DoctorId")
+
+    <input type="submit" value="Save" />
+  }
+
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+  <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+</div>

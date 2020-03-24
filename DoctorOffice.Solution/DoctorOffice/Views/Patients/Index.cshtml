@@ -1,22 +1,23 @@
 @{
   Layout = "_Layout";
-  ViewBag.Title = "";
+  ViewBag.Title = "All Patients";
 }
 
 @using DoctorOffice.Models;
 @model List<DoctorOffice.Models.Patient>;
 
-@* <h1>Items</h1>
+<div class="patientsIndex">
+  <h1><strong>List of Patients</strong></h1>
+  @if (Model.Count == 0)
+  {
+    <p>There are currently no patients registered. Click below to add a new patient.</p>
+  }
 
-@if (@Model.Count == 0)
-{
-  <h3>No items have been added yet!</h3>
-} 
+  @foreach (Patient patient in Model)
+  {
+    <p>@Html.ActionLink($"{patient.FirstName} {patient.LastName}", "Details", new { id = patient.PatientId })</p>
+  }
+</div>
 
-@foreach (Item item in Model)
-{
-  <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name</li>
-}
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+<p>@Html.ActionLink("Add a new patient", "Create")</p>
+<p>@Html.ActionLink("Go Home", "Index", "Home")</p>

@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Patient Details";
+}
+
+@model DoctorOffice.Models.Patient
+
+<div class="patientDetails">
+  <h1><strong>Patient Details</h1></strong>
+  <p>Name : @Html.DisplayFor(model => model.LastName), @Html.DisplayFor(model => model.FirstName)</p>
+  <p>Date of Birth : @Html.DisplayFor(model => model.DOB.Month)/@Html.DisplayFor(model => model.DOB.Day)/@Html.DisplayFor(model => model.DOB.Year)</p>
+  <p>Phone Number : @Html.DisplayFor(model => model.PhoneNumber)</p>
+  <p>Allergies : @Html.DisplayFor(model => model.Allergies)</p>
+  <p>Medical History : @Html.DisplayFor(model => model.MedicalHistory)</p>
+ 
+  @if (@Model.Doctors.Count > 0)
+  {
+    <p>@Html.DisplayFor(model => model.LastName)'s Treatment Team :</p>
+    @foreach(var join in Model.Doctors)
+    {
+      <p>Dr. @join.Doctor.LastName, @join.Doctor.FirstName | @join.Doctor.Specialty</p>
+    }
+  }
+
+  <p>@Html.ActionLink("Back to Patient List", "Index")</p>
+  <p>@Html.ActionLink("Assign a Doctor To This Patient", "AddDoctor", new { id = Model.PatientId })</p>
+  <p>@Html.ActionLink("Edit This Patient's Information", "Edit", new { id = Model.PatientId})</p>
+  <p>@Html.ActionLink("Delete This Patient", "Delete", new { id = Model.PatientId})</p>
+  <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+</div>
