@@ -57,33 +57,21 @@ namespace DoctorOffice.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctors => doctors.DoctorId == id);
+      return View(thisDoctor);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Category category)
-    // {
-    //   _db.Entry(category).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctors => doctors.DoctorId == id);
+      _db.Doctors.Remove(thisDoctor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
-
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   _db.Categories.Remove(thisCategory);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    
   }
 }

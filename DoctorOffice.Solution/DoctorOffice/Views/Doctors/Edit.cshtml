@@ -29,7 +29,7 @@
     @Html.CheckBoxFor(model => model.AcceptNewPatients, new { htmlAttributes = new { @value=true, @class = "form-control" } })
     <br>
     @Html.Label("Hire Date")
-    @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @type="date", @class = "form-control" } })
+    @Html.TextBoxFor(model => model.HireDate, "{0:MM-dd-yyyy}")
 
     <input type="submit" value="Save" class="btn btn-primary">
   }

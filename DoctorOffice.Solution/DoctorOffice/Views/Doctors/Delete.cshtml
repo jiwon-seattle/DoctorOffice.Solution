@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Remove Doctor";
+}
+
+@model DoctorOffice.Models.Doctor
+
+<h2>Are you sure you want to remove this Doctor?</h2>
+@* 
+@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+
+@Html.ActionLink("Back to List", "Index") *@
