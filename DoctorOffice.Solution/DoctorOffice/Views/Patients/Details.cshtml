@@ -19,6 +19,11 @@
     @foreach(var join in Model.Doctors)
     {
       <p>Dr. @join.Doctor.LastName, @join.Doctor.FirstName | @join.Doctor.Specialty</p>
+      @using (Html.BeginForm("DeleteDoctor", "Patients"))
+      {
+        @Html.Hidden("joinId", @join.DoctorPatientId)
+        <input type="submit" value="Delete"/>
+      }
     }
   }
 

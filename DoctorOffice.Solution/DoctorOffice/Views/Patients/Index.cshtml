@@ -7,6 +7,13 @@
 @model List<DoctorOffice.Models.Patient>;
 
 <div class="patientsIndex">
+@* 
+  <div id="patientDuplicate">
+     @if (TempData.ContainsKey("ErrorMessage"))
+    {
+    <h4 id="errorMessage">@TempData["ErrorMessage"]</h4>
+    } *@
+  </div>
   <h1><strong>List of Patients</strong></h1>
   @if (Model.Count == 0)
   {

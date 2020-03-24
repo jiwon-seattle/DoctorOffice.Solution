@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using DoctorOffice.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace DoctorOffice.Controllers
 {
@@ -56,6 +57,7 @@ namespace DoctorOffice.Controllers
     {
       if (doctorId != 0)
       {
+        // _db.DoctorPatients.RemoveRange(_db.DoctorPatients);
         _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = doctorId, PatientId = patient.PatientId});
       }
       _db.Entry(patient).State = EntityState.Modified;
@@ -73,9 +75,11 @@ namespace DoctorOffice.Controllers
     [HttpPost]
     public ActionResult AddDoctor(Patient patient, int DoctorId)
     {
+
       if (DoctorId != 0)
       {
-      _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = DoctorId, PatientId = patient.PatientId });
+        // _db.DoctorPatients.RemoveRange(_db.DoctorPatients.Where( doctorId => DoctorId == DoctorId));
+        _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = DoctorId, PatientId = patient.PatientId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -97,9 +101,9 @@ namespace DoctorOffice.Controllers
     }
 
     [HttpPost]
-    public ActionResult DeleteDoctor(int joinid)
+    public ActionResult DeleteDoctor(int joinId)
     {
-      var joinEntry = _db.DoctorPatients.FirstOrDefault(entry => entry.DoctorPatientId == joinid);
+      var joinEntry = _db.DoctorPatients.FirstOrDefault(entry => entry.DoctorPatientId == joinId);
       _db.DoctorPatients.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
