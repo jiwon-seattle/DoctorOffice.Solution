@@ -75,13 +75,15 @@ namespace DoctorOffice.Controllers
     [HttpPost]
     public ActionResult AddDoctor(Patient patient, int DoctorId)
     {
-
-      if (DoctorId != 0)
+      try
       {
-        // _db.DoctorPatients.RemoveRange(_db.DoctorPatients.Where( doctorId => DoctorId == DoctorId));
         _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = DoctorId, PatientId = patient.PatientId });
+        _db.SaveChanges();
       }
-      _db.SaveChanges();
+      catch(DbUpdateException e)
+      {
+        TempData["ErrorMessage"] = "This patient is already seeing the selected doctor.";
+      }
       return RedirectToAction("Index");
     }
 

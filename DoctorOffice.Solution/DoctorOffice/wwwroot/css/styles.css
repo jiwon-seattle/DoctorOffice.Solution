@@ -11,6 +11,10 @@ label {
   margin: 10px;
 }
 
+#patientDuplicate {
+  color: red;
+}
+
 .checkmark {
   color: green;
   font-weight: bolder;
