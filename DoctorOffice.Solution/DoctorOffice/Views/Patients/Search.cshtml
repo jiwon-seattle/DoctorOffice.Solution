@@ -20,9 +20,9 @@
 
       @Html.Label("By DOB")
       <p><strong>
-      @Html.TextBoxFor(model => model.DOB, new { @type="date", @required = "required", @class="form-control"})
+      @Html.TextBoxFor((model => model.DOB), new { @type ="date", @class="form-control"})
       </p>
-
+      
       <input class="btn btn-primary" type="submit" value="Search" style="cursor: pointer">
     }
   </div>

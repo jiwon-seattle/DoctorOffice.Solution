@@ -20,15 +20,13 @@
 6. As an administrator, I want new patients to have unique Medical Record Numbers (MRN) that auto-increments starting from 202003000 so that each patient can have a unique identifier.
 7. As an administrator, I want to be able to search for a doctor, so I can see their contact info and page them.
 8. As an administrator, I want to be able to search for a patient, so I can look up patient info details.
+9. As an administator, I can assign patients to doctors who only accepts new patients.
 
-Parking Lot:
+Parking Lot/Improvement Opportunities:
 - Add a class for Appointments(doesn't allow conflicts)
 - Separate Specialty into a different class? Make a join class of DoctorSpecialty
-
-Improvement Opportunities:
 - In EDIT Doctor functionality, we were able to format the date display to MM/DD/YYYY. However, the input form type is not date type so user will have to type in the date if they need to edit it.
 - Use try/catch functions to make sure there is no duplicates added to the database.
-
 
 ## 2. Development
 ### Tech stack:
@@ -50,7 +48,7 @@ You might encounter a MySql database related errors on initial loading since thi
 
 ## 3. Known Bugs
 
-There are no known bugs this time
+- SEARCH patients functionality currently does not work by patient's last name only.
 
 ## 4. Support and contact details
 

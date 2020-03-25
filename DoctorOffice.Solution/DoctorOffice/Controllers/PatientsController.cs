@@ -120,11 +120,14 @@ namespace DoctorOffice.Controllers
       {
         string nameSearch = searchPatient.LastName.ToLower();
         foundPatients = foundPatients.FindAll(patients => patients.LastName.ToLower().Equals(nameSearch) == true);
-        Console.WriteLine(nameSearch);
+        // Console.WriteLine("Name Search: " + nameSearch);
+        // Console.WriteLine("Found Patients: " + foundPatients);
       }
       if(searchPatient.DOB != null)
       {
         foundPatients = foundPatients.FindAll(patients => patients.DOB.Equals(searchPatient.DOB) == true);
+        // Console.WriteLine("DOB Search: " + searchPatient.DOB);
+        // Console.WriteLine("Found Patients: " + foundPatients);
       }
       return View("SearchResult", foundPatients);
     }
