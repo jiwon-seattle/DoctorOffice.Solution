@@ -11,7 +11,14 @@
 
   <p>Name : @Model.FirstName @Model.LastName</p>
   <p>Specialty : @Model.Specialty</p>
-  <p>Pager Number : @Model.PagerNumber</p>
+  @if (Model.PagerNumber == 0)
+  {
+    <p>Pager Number : N/A. Please add this information ASAP.</p>
+  }
+  else
+  {
+    <p>Pager Number : @Model.PagerNumber</p>
+  }
   <p>Accepting new patients : 
     @if (@Model.AcceptNewPatients == true)
     {
