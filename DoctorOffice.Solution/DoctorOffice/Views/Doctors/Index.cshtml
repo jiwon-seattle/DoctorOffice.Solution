@@ -14,6 +14,9 @@
     {
       <h3>@Html.ActionLink($"{doctor.FirstName} {doctor.LastName}", "Details", new { id = doctor.DoctorId })</h3>
     }
+    <p>@Html.ActionLink("Sort By Last Name", "Index", new { sortBy="lastName" })</p>
+    <p>@Html.ActionLink("Sort By First Name", "Index", new { sortBy="firstName" })</p>
+    <p>@Html.ActionLink("Sort By Seniority (Top: Newer Employees)", "Index", new { sortBy="seniority" })</p>
   }
   else
   {

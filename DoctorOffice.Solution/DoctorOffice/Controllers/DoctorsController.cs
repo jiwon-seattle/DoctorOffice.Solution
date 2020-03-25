@@ -24,11 +24,23 @@ namespace DoctorOffice.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public async Task<ActionResult> Index(string sortBy)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userDoctors = _db.Doctors.Where(entry => entry.User.Id == currentUser.Id);
+      if (sortBy == "lastName")
+      {
+        userDoctors = userDoctors.OrderBy(doctors => doctors.LastName);
+      }
+      if (sortBy == "firstName")
+      {
+        userDoctors = userDoctors.OrderBy(doctors => doctors.FirstName);
+      }
+      if (sortBy == "seniority")
+      {
+        userDoctors = userDoctors.OrderByDescending(doctors => doctors.HireDate);
+      }
       return View(userDoctors);
     }
 
