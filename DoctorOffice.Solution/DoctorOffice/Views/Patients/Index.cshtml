@@ -21,12 +21,10 @@
   {
     <p>There are currently no patients registered. Click below to add a new patient.</p>
   }
-
-</div>
-<div id="patientDuplicate" class="exceptionError">
+<div class="exceptionError">
     @if (TempData.ContainsKey("ErrorMessage"))
     {
-    <h4 id="errorMessage" class="exceptionError">@TempData["ErrorMessage"]</h4>
+    <h4>@TempData["ErrorMessage"]</h4>
     }
 </div>
 

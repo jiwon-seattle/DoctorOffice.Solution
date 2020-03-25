@@ -295,7 +295,7 @@ label
   margin: 10px;
 }
 
-#patientDuplicate 
+.exceptionError 
 {
   color: red;
 }
@@ -313,7 +313,7 @@ label
 }
 
 div#footer {
-  position: absolute;
+  position: fixed;
   bottom:0px;
   left:0px;
   width:100%;

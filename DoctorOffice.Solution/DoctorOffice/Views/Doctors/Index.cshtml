@@ -22,11 +22,10 @@
   {
     <p>There are currently no doctors in data. Click below to add new doctor.</p>
   }
-</div>
 <div class="exceptionError">
     @if (TempData.ContainsKey("ErrorMessage"))
     {
-    <h4 class="exceptionError">@TempData["ErrorMessage"]</h4>
+    <h4>@TempData["ErrorMessage"]</h4>
     }
 </div>
 
