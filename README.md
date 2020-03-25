@@ -21,6 +21,7 @@
 7. As an administrator, I want to be able to search for a doctor, so I can see their contact info and page them.
 8. As an administrator, I want to be able to search for a patient, so I can look up patient info details.
 9. As an administator, I want to assign patients to doctors who only accepts new patients.
+10. As a developer, I want to be able to see exception error messages, so that I can debug any exceptions that appears.
 
 Parking Lot/Improvement Opportunities:
 - Add a class for Appointments(doesn't allow conflicts)
