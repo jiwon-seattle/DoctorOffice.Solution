@@ -42,7 +42,7 @@ namespace DoctorOffice
       });
     }
 
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
       app.UseStaticFiles();
 
@@ -55,14 +55,13 @@ namespace DoctorOffice
         routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
-      });
-      
+      });     
+
       app.Run(async (context) =>
       {
         await context.Response.WriteAsync("Something went wrong!");
       });
     }
-
 
   }
   

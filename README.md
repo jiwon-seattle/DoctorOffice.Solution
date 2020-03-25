@@ -1,6 +1,6 @@
 # Doctor Office 
 
-#### Doctor office with patients management system, 03.23.2020 - 03.24.20
+#### Doctor office with patients management system, 03.23.2020 - 03.25.20
 
 #### By **Jiwon Han and Adela Darmansyah**
 
@@ -25,7 +25,6 @@
 Parking Lot/Improvement Opportunities:
 - Add a class for Appointments(doesn't allow conflicts)
 - Separate Specialty into a different class? Make a join class of DoctorSpecialty
-- In EDIT Doctor functionality, we were able to format the date display to MM/DD/YYYY. However, the input form type is not date type so user will have to type in the date if they need to edit it.
 - Use try/catch functions to make sure there is no duplicates added to the database.
 
 ## 2. Development
@@ -48,7 +47,8 @@ You might encounter a MySql database related errors on initial loading since thi
 
 ## 3. Known Bugs
 
-- SEARCH patients functionality currently does not work by patient's last name only.
+- SEARCH patients functionality currently does not work only by patient's last name. A user will have to search patients only by date of birth or both by last name and date of birth.
+- EDIT doctor's hire date input form type is currently not a date type. A user will have to type in the date if they need to edit it.
 
 ## 4. Support and contact details
 
