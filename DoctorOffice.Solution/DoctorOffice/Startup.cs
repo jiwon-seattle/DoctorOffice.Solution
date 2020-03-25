@@ -62,7 +62,5 @@ namespace DoctorOffice
         await context.Response.WriteAsync("Something went wrong!");
       });
     }
-
   }
-  
 }

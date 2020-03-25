@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using DoctorOffice.Models;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 
 namespace DoctorOffice.Controllers
@@ -48,11 +49,18 @@ namespace DoctorOffice.Controllers
     [HttpPost]
     public async Task<ActionResult> Create(Doctor doctor)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      doctor.User = currentUser;
-      _db.Doctors.Add(doctor);
-      _db.SaveChanges();
+      try
+      {
+        var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUser = await _userManager.FindByIdAsync(userId);
+        doctor.User = currentUser;
+        _db.Doctors.Add(doctor);
+        _db.SaveChanges();
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine("Exception Error in Create(): " + ex);
+      }
       return RedirectToAction("Index");
     }
 
@@ -65,8 +73,16 @@ namespace DoctorOffice.Controllers
     [HttpPost]
     public ActionResult Edit(Doctor doctor)
     {
-      _db.Entry(doctor).State = EntityState.Modified;
-      _db.SaveChanges();
+      try
+      {
+        _db.Entry(doctor).State = EntityState.Modified;
+        _db.SaveChanges();
+      }
+      catch (Exception ex)
+      {
+        TempData["ErrorMessage"] = "An Error occurred. Please see the Console for details.";
+        Console.WriteLine("Exception Error in Edit(): " + ex);
+      }
       return RedirectToAction("Index");
     }
 
@@ -79,9 +95,17 @@ namespace DoctorOffice.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisDoctor = _db.Doctors.FirstOrDefault(doctors => doctors.DoctorId == id);
-      _db.Doctors.Remove(thisDoctor);
-      _db.SaveChanges();
+      try
+      {
+        var thisDoctor = _db.Doctors.FirstOrDefault(doctors => doctors.DoctorId == id);
+        _db.Doctors.Remove(thisDoctor);
+        _db.SaveChanges();
+      }
+      catch (Exception ex)
+      {
+        TempData["ErrorMessage"] = "An Error occurred. Please see the Console for details.";
+        Console.WriteLine("Exception Error in DeleteConfirmed(): " + ex);
+      }
       return RedirectToAction("Index");
     }
     
@@ -102,22 +126,26 @@ namespace DoctorOffice.Controllers
     public ActionResult Search(Doctor searchDoctor)
     {
       List<Doctor> foundDoctors = _db.Doctors.ToList();
-
-      if (searchDoctor.LastName != null)
+      try
       {
-        string nameSearch = searchDoctor.LastName.ToLower();
-        foundDoctors = foundDoctors.FindAll(doctors => doctors.LastName.ToLower().Equals(nameSearch) == true);
+        if (searchDoctor.LastName != null)
+        {
+          string nameSearch = searchDoctor.LastName.ToLower();
+          foundDoctors = foundDoctors.FindAll(doctors => doctors.LastName.ToLower().Equals(nameSearch) == true);
+        }
+        if (searchDoctor.Specialty != null)
+        {
+          foundDoctors = foundDoctors.FindAll(doctors => doctors.Specialty.Equals(searchDoctor.Specialty) == true);
+        }
       }
-      if (searchDoctor.Specialty != null)
+      catch (Exception ex)
       {
-        foundDoctors = foundDoctors.FindAll(doctors => doctors.Specialty.Equals(searchDoctor.Specialty) == true);
+        TempData["ErrorMessage"] = "An Error occurred. Please see the Console for details.";
+        Console.WriteLine("Exception Error in Search(): " + ex);
       }
-
       // List<Doctor> thisDoctors = _db.Doctors.Where(doctor => doctor.LastName == lastName).ToList();
       return View("SearchResult", foundDoctors);
     }
-
-
-    
+ 
   }
 }

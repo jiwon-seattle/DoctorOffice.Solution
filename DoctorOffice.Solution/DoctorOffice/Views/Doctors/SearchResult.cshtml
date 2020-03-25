@@ -19,6 +19,12 @@
       <p>@Html.ActionLink($"{doctor.LastName}", "Details", new {id = doctor.DoctorId})</p>
     }
   </div>
+  <div class="exceptionError">
+    @if (TempData.ContainsKey("ErrorMessage"))
+    {
+    <h4 class="exceptionError">@TempData["ErrorMessage"]</h4>
+    }
+  </div>
 
   <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
 

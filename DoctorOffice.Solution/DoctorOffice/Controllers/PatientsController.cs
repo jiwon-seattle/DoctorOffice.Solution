@@ -94,9 +94,10 @@ namespace DoctorOffice.Controllers
         _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = DoctorId, PatientId = patient.PatientId });
         _db.SaveChanges();
       }
-      catch(DbUpdateException e)
+      catch (DbUpdateException ex)
       {
         TempData["ErrorMessage"] = "This patient is already seeing the selected doctor.";
+        Console.WriteLine("Database Update Exception Error in AddDoctor(): " + ex);
       }
       return RedirectToAction("Index");
     }
