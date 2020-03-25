@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorOffice.Migrations
 {
     [DbContext(typeof(DoctorOfficeContext))]
-    [Migration("20200324224619_addIdentity")]
-    partial class addIdentity
+    [Migration("20200325194318_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,7 +86,11 @@ namespace DoctorOffice.Migrations
 
                     b.Property<string>("Specialty");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("DoctorId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
                 });
@@ -126,7 +130,11 @@ namespace DoctorOffice.Migrations
 
                     b.Property<string>("PhoneNumber");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("PatientId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -238,6 +246,13 @@ namespace DoctorOffice.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DoctorOffice.Models.Doctor", b =>
+                {
+                    b.HasOne("DoctorOffice.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("DoctorOffice.Models.DoctorPatient", b =>
                 {
                     b.HasOne("DoctorOffice.Models.Doctor", "Doctor")
@@ -249,6 +264,13 @@ namespace DoctorOffice.Migrations
                         .WithMany("Doctors")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DoctorOffice.Models.Patient", b =>
+                {
+                    b.HasOne("DoctorOffice.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

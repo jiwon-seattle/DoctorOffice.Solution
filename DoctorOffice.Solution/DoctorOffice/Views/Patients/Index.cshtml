@@ -14,7 +14,7 @@
   {
     @foreach (Patient patient in Model)
    {
-      <p>@Html.ActionLink($"{patient.FirstName} {patient.LastName}", "Details", new { id = patient.PatientId })</p>
+      <h3>@Html.ActionLink($"{patient.FirstName} {patient.LastName}", "Details", new { id = patient.PatientId })</h3>
     }
   }
   else
@@ -30,6 +30,8 @@
     }
 </div>
 
-<p>@Html.ActionLink("Add a new patient", "Create")</p>
-<p>@Html.ActionLink("Search for Patients", "Search")</p>
-<p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+  <div id="patientIndexLinks">
+    <p><img src="~/img/add-friend.png" style="width: 30px;">@Html.ActionLink("Add a new patient", "Create")</p>
+    <p><img src="~/img/barcode.png" style="width: 30px;">@Html.ActionLink("Search for Patients", "Search")</p>
+  </div>
+</div>

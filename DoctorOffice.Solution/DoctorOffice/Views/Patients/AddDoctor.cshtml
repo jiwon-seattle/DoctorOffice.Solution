@@ -17,11 +17,9 @@
     @Html.Label("Select doctor")
     @Html.DropDownList("DoctorId")
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="w3-button w3-indigo"/>
   }
 
   <p>Note: Some providers are not shown in the list because they are currently not accepting new patients.</p>
 
-  <p>@Html.ActionLink("Back to list", "Index")</p>
-  <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
 </div>

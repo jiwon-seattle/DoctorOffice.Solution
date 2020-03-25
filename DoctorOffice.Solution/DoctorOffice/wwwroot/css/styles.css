@@ -25,6 +25,12 @@
   border: 2px solid red;
 }
 
+#logInfo
+{
+  left: 80%;
+  position: absolute; 
+}
+
 body 
 {
   font-family: 'Bellota Text', cursive;
@@ -98,6 +104,188 @@ h1, h2, h3, h4
   border: 2px solid green;
   top: 55px;
   padding: 150px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.doctorsIndex
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 150px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+#doctorIndexLinks
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid green;
+}
+
+.doctorCreate
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 18px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.doctorSearch
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 80px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.doctorSearchResult
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 80px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.doctorDetails
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+#doctorDetailsLinks
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid green;
+}
+
+.doctorEdit
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.doctorDelete
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientsIndex
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 150px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+#patientIndexLinks
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid green;
+}
+
+.patientCreate
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 18px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientSearch
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 80px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientSearchResult
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 80px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientDetails
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+#patientDetailsLinks
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid green;
+}
+
+.assignDoctor
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientEdit
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 20px;
+  margin: 50px;
+  text-align: center;
+  height: 600px;
+}
+
+.patientDelete
+{
+  border: 2px solid green;
+  top: 55px;
+  padding: 40px;
   margin: 50px;
   text-align: center;
   height: 600px;

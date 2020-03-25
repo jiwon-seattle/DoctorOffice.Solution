@@ -5,13 +5,14 @@
 @model DoctorOffice.Models.Patient
 
 <div class="patientDelete">
+  <h2>Are you sure you want to remove this Patient?</h2>
   <h1><strong>Delete this paitent?</strong></h1>
 
   @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
   @using (Html.BeginForm())
   {
-    <input type="submit" value="Delete">
+    <br>
+    <input type="submit" value="Delete" class="w3-button w3-indigo">
   }
 
-  @Html.ActionLink("Back to List", "Index")
 </div>

@@ -26,10 +26,11 @@
       }
     }
   }
-
-  <p>@Html.ActionLink("Back to Patient List", "Index")</p>
-  <p>@Html.ActionLink("Assign a Doctor To This Patient", "AddDoctor", new { id = Model.PatientId })</p>
-  <p>@Html.ActionLink("Edit This Patient's Information", "Edit", new { id = Model.PatientId})</p>
-  <p>@Html.ActionLink("Delete This Patient", "Delete", new { id = Model.PatientId})</p>
-  <p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+    <hr>
+    <p>@Html.ActionLink("Assign a Doctor To This Patient", "AddDoctor", new { id = Model.PatientId })</p>
+    <hr>
+     <div id="patientDetailsLinks">
+    <p><img src="~/img/eraser.png" style="width: 30px;">@Html.ActionLink("Edit This Patient's Information", "Edit", new { id = Model.PatientId})</p>
+    <p><img src="~/img/delete.png" style="width: 30px;">@Html.ActionLink("Delete This Patient", "Delete", new { id = Model.PatientId})</p>
+  </div>
 </div>

@@ -33,10 +33,9 @@
 
   @Html.Label("Medical History")
   @Html.EditorFor(model => model.MedicalHistory, new { htmlAttributes = new { @type="text", @class="form-control" } })
-
-  <input type="submit" value="Save" />
+  <br>
+  <input type="submit" value="Save" class="w3-button w3-indigo" />
 }
 
-<p>@Html.ActionLink("Back To All Patients", "Index")</p>
 
 </div>

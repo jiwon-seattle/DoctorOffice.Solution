@@ -27,11 +27,8 @@
     <br>
     @Html.LabelFor(model => model.HireDate)
     @Html.TextBoxFor(model => model.HireDate, new { @type="date", @required = "required", @class="form-control"})
-
-    <input type="submit" value="Add New Doctor" class="btn btn-lg"/>
+    <br>
+    <input type="submit" value="Add New Doctor" class="w3-button w3-indigo"/>
   }
-
-  <p>@Html.ActionLink("Back To List of Doctors", "Index", "Doctors")</p>
-  <p>@Html.ActionLink("Back To Home", "Index", "Home")</p>
 
 </div>
