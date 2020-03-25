@@ -7,20 +7,21 @@
 @model IEnumerable<DoctorOffice.Models.Doctor>;
 
 <div class="doctorsIndex">
-  <h1><strong>List of Doctors for @User.Identity.Name</strong></h1>
+  <h1><strong>List of Doctors</strong></h1>
   @if (Model.Any())
   {
     @foreach (Doctor doctor in Model)
     {
-      <p>@Html.ActionLink($"{doctor.FirstName} {doctor.LastName}", "Details", new { id = doctor.DoctorId })</p>
+      <h3>@Html.ActionLink($"{doctor.FirstName} {doctor.LastName}", "Details", new { id = doctor.DoctorId })</h3>
     }
   }
   else
   {
     <p>There are currently no doctors in data. Click below to add new doctor.</p>
   }
-</div>
 
-<p>@Html.ActionLink("Add a new doctor", "Create")</p>
-<p>@Html.ActionLink("Search for Doctors", "Search")</p>
-<p>@Html.ActionLink("Go Home", "Index", "Home")</p>
+  <div id="doctorIndexLinks">
+    <p><img src="~/img/add-friend.png" style="width: 30px;">@Html.ActionLink("Add a new doctor", "Create")</p>
+    <p><img src="~/img/barcode.png" style="width: 30px;">@Html.ActionLink("Search for Doctors", "Search")</p>
+  </div>
+</div>

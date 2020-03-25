@@ -35,8 +35,9 @@
       <p>@join.Patient.LastName, @join.Patient.FirstName | Date of Birth: @join.Patient.DOB.Month/@join.Patient.DOB.Day/@join.Patient.DOB.Year</p>
     }
   }
-
-  <p>@Html.ActionLink("Back to Doctor List", "Index")</p>
-  <p>@Html.ActionLink("Edit This Doctor's Information", "Edit", new { id = Model.DoctorId})</p>
-  <p>@Html.ActionLink("Delete This Doctor", "Delete", new { id = Model.DoctorId})</p>
+  <hr>
+  <div id="doctorDetailsLinks">
+    <p><img src="~/img/eraser.png" style="width: 30px;">@Html.ActionLink("Edit This Doctor's Information", "Edit", new { id = Model.DoctorId})</p>
+    <p><img src="~/img/delete.png" style="width: 30px;">@Html.ActionLink("Delete This Doctor", "Delete", new { id = Model.DoctorId})</p>
+  </div>
 </div>
