@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 using DoctorOffice.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +12,24 @@ using System;
 
 namespace DoctorOffice.Controllers
 {
+  [Authorize]
   public class PatientsController : Controller
   {
     private readonly DoctorOfficeContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public PatientsController(DoctorOfficeContext db)
+    public PatientsController(UserManager<ApplicationUser> userManager, DoctorOfficeContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Patients.ToList());
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userPatients = _db.Patients.Where(entry => entry.User.Id == currentUser.Id);
+      return View(userPatients);
     }
 
     public ActionResult Details(int id)
@@ -38,11 +48,18 @@ namespace DoctorOffice.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Patient patient)
+    public async Task<ActionResult> Create(Patient patient, int DoctorId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      patient.User = currentUser;
       _db.Patients.Add(patient);
+      if (DoctorId != 0)
+      {
+        _db.DoctorPatients.Add(new DoctorPatient() { DoctorId = DoctorId, PatientId = patient.PatientId });
+      }
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index");  
     }
 
     public ActionResult Edit(int id)
@@ -60,10 +77,12 @@ namespace DoctorOffice.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddDoctor(int id)
+    public async Task<ActionResult> AddDoctor(int id)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
       var thisPatient = _db.Patients.FirstOrDefault(patients => patients.PatientId == id);
-      ViewBag.DoctorId = new SelectList(_db.Doctors.Where(doctors => doctors.AcceptNewPatients == true), "DoctorId", "LastName");
+      ViewBag.DoctorId = new SelectList(_db.Doctors.Where(doctors => doctors.AcceptNewPatients == true && doctors.User.Id == currentUser.Id), "DoctorId", "LastName");
       return View(thisPatient);
     }
 

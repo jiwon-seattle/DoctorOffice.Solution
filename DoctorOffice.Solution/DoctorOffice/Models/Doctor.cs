@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System;
 
 namespace DoctorOffice.Models
 {
@@ -12,6 +12,7 @@ namespace DoctorOffice.Models
     public int PagerNumber { get; set; }
     public bool AcceptNewPatients { get; set; }
     public DateTime HireDate { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public ICollection<DoctorPatient> Patients { get; set; }
     public Doctor()
     {

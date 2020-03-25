@@ -12,6 +12,7 @@ namespace DoctorOffice.Models
     public string PhoneNumber { get; set; }
     public string Allergies { get; set; }
     public string MedicalHistory { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public ICollection<DoctorPatient> Doctors { get; set; }
 
     public Patient()

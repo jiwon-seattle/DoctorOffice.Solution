@@ -19,7 +19,7 @@
     @Html.TextBoxFor(model => model.DOB, new { @type="date", @placeholder="Doe",@required = "required", @class="form-control"})
 
     @Html.Label("Phone Number")
-    @Html.TextBoxFor(model => model.PhoneNumber, new { @type="number", @placeholder="1234567890",@required = "required", @class="form-control"})
+    @Html.TextBoxFor(model => model.PhoneNumber, new { @type="tel", @placeholder="1234567890", @maxlength="10", @required = "required", @class="form-control"})
     
     @Html.Label("Allergies")
     @Html.TextBoxFor(model => model.Allergies, new { @type="text", @placeholder="Bees",@required = "required", @class="form-control"})

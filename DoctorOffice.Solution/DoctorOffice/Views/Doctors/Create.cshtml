@@ -20,7 +20,7 @@
     @Html.TextAreaFor(model => model.Specialty, new { @type="text", @placeholder="Pediatrician", @required = "required", @class="form-control"})
 
     @Html.LabelFor(model => model.PagerNumber)
-    @Html.TextBoxFor(model => model.PagerNumber, new { @type="tel", @placeholder="206-368-6000", @maxlength="10", @required = "required", @class="form-control"})
+    @Html.TextBoxFor(model => model.PagerNumber, new { @type="tel", @placeholder="2063686000", @maxlength="10", @required = "required", @class="form-control"})
 
     @Html.Label("Accepting New Patients?")
     @Html.CheckBoxFor(model => model.AcceptNewPatients, true)

@@ -20,7 +20,7 @@
 6. As an administrator, I want new patients to have unique Medical Record Numbers (MRN) that auto-increments starting from 202003000 so that each patient can have a unique identifier.
 7. As an administrator, I want to be able to search for a doctor, so I can see their contact info and page them.
 8. As an administrator, I want to be able to search for a patient, so I can look up patient info details.
-9. As an administator, I can assign patients to doctors who only accepts new patients.
+9. As an administator, I want to assign patients to doctors who only accepts new patients.
 
 Parking Lot/Improvement Opportunities:
 - Add a class for Appointments(doesn't allow conflicts)

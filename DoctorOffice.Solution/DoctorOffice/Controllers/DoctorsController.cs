@@ -1,24 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 using DoctorOffice.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DoctorOffice.Controllers
 {
+  [Authorize]
   public class DoctorsController : Controller
   {
     private readonly DoctorOfficeContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public DoctorsController(DoctorOfficeContext db)
+    public DoctorsController(UserManager<ApplicationUser> userManager, DoctorOfficeContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Doctors.ToList());
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userDoctors = _db.Doctors.Where(entry => entry.User.Id == currentUser.Id);
+      return View(userDoctors);
     }
 
     public ActionResult Details(int id)
@@ -36,8 +46,11 @@ namespace DoctorOffice.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Doctor doctor)
+    public async Task<ActionResult> Create(Doctor doctor)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      doctor.User = currentUser;
       _db.Doctors.Add(doctor);
       _db.SaveChanges();
       return RedirectToAction("Index");

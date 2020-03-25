@@ -3,14 +3,16 @@ using System;
 using DoctorOffice.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoctorOffice.Migrations
 {
     [DbContext(typeof(DoctorOfficeContext))]
-    partial class DoctorOfficeContextModelSnapshot : ModelSnapshot
+    [Migration("20200325173935_Authorization")]
+    partial class Authorization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,11 +130,7 @@ namespace DoctorOffice.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("PatientId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -262,13 +260,6 @@ namespace DoctorOffice.Migrations
                         .WithMany("Doctors")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DoctorOffice.Models.Patient", b =>
-                {
-                    b.HasOne("DoctorOffice.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
