@@ -63,7 +63,7 @@ namespace DoctorOffice.Controllers
     public ActionResult AddDoctor(int id)
     {
       var thisPatient = _db.Patients.FirstOrDefault(patients => patients.PatientId == id);
-      ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "LastName");
+      ViewBag.DoctorId = new SelectList(_db.Doctors.Where(doctors => doctors.AcceptNewPatients == true), "DoctorId", "LastName");
       return View(thisPatient);
     }
 
@@ -112,28 +112,22 @@ namespace DoctorOffice.Controllers
       return View();
     }
 
-    // [HttpPost]
-    // public ActionResult Search(string lastName, DateTime DOB)
-    // {
-    //   List<Patient> thisPatients = _db.Patients.ToList();
-    //   List<Patient> foundPatients = new List<Patient>();
-
-    //   if (lastName != null && DOB != null)
-    //   {
-    //     thisPatients = thisPatients.Where(patient => patient.LastName == lastName).ToList();
-    //     List<Patient> foundPatients = thisPatients;
-    //     thisPatients = thisPatients.Where(patient => patient.DOB == DOB).ToList();
-    //   }
-
-    //   // WHERE System.Linq - specific to LINQ so always have to covert to List before we can pass it on to View
-    //   // FINDALL System.Collections.Generic - specific to a List
-
-    //   // if (DOB != null)
-    //   // {
-    //   //   thisPatients = thisPatients.Where(patient => patient.DOB == DOB).ToList();
-    //   // }
-    //   return View("SearchResult", thisPatients);
-    // }
+    [HttpPost]
+    public ActionResult Search(Patient searchPatient)
+    {
+      List<Patient> foundPatients = _db.Patients.ToList();
+      if(searchPatient.LastName != null)
+      {
+        string nameSearch = searchPatient.LastName.ToLower();
+        foundPatients = foundPatients.FindAll(patients => patients.LastName.ToLower().Equals(nameSearch) == true);
+        Console.WriteLine(nameSearch);
+      }
+      if(searchPatient.DOB != null)
+      {
+        foundPatients = foundPatients.FindAll(patients => patients.DOB.Equals(searchPatient.DOB) == true);
+      }
+      return View("SearchResult", foundPatients);
+    }
 
   }
 }

@@ -17,7 +17,6 @@
     @foreach (Patient patient in Model)
     {
       <p>@Html.ActionLink($"{patient.LastName}", "Details", new {id = patient.PatientId})</p>
-
     }
   </div>
 

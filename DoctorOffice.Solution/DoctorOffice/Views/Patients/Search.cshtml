@@ -20,9 +20,8 @@
 
       @Html.Label("By DOB")
       <p><strong>
-      @Html.TextBoxFor(model => model.DOB, "{0:MM-dd-yyyy}")
+      @Html.TextBoxFor(model => model.DOB, new { @type="date", @required = "required", @class="form-control"})
       </p>
-
 
       <input class="btn btn-primary" type="submit" value="Search" style="cursor: pointer">
     }

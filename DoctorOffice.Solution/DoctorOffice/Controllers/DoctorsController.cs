@@ -99,7 +99,7 @@ namespace DoctorOffice.Controllers
       {
         foundDoctors = foundDoctors.FindAll(doctors => doctors.Specialty.Equals(searchDoctor.Specialty) == true);
       }
-     
+
       // List<Doctor> thisDoctors = _db.Doctors.Where(doctor => doctor.LastName == lastName).ToList();
       return View("SearchResult", foundDoctors);
     }
