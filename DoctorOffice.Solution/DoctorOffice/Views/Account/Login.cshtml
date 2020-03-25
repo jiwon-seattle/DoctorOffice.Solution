@@ -7,15 +7,17 @@
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email)
+<div class="accountLogin">
+  <h1><strong>Log in with your account</strong></h1>
+  <hr />
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @type="text", @required = "required", @class="form-control"})
 
-  @Html.LabelFor(m => m.Password)
-  @Html.PasswordFor(m => m.Password)
-
-  <input type="submit" value="Log in" class="btn btn-default" />
-}
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password, new {@required = "required", @class="form-control"})
+    <br>
+    <input type="submit" value="Log in" class="w3-button w3-indigo" />
+  }
+</div>

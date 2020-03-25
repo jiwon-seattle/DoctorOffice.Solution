@@ -5,9 +5,14 @@
     <title>@ViewBag.Title - Doctor's Office</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+    @Html.Partial("Header")
+    <div class="container">
     @RenderBody()
+    </div>
+     @Html.Partial("Footer")
   </body>
 </html>

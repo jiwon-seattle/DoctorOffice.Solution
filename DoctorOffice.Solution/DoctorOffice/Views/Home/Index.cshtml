@@ -3,10 +3,19 @@
   ViewBag.Title = "Home";
 }
 
-<h1>Welcome to Doctor's Office!</h1>
-
-<p>@Html.ActionLink("See All Doctors", "Index", "Doctors")</p>
-<p>@Html.ActionLink("See All Patients", "Index", "Patients")</p>
-<p>@Html.ActionLink("Create an Account", "Index", "Account")</p>
-
-@* @Html.ActionLink("text display goes here", "Target-Controller-Name", "Name-of-the-controller-without-Controller-appended-to-it") *@
+<div class="homeIndex">
+  <h1><strong>Doctor Patient Management</strong></h1>
+  <div id="homeGuideline">
+    <img src="~/img/doctor.png" style="width:300px;">
+    <h4>Welcome to Doctor Patient Management!</h4>
+    <h4>As administrator, you are able to build doctor office management system.</h4>
+    <h4>For Doctor section, you manage to add and track all doctors and their patients.</h4>
+    <h4>For Patient section, you manage to add and track all patients and their doctors.</h4>
+    <h4>If you have any concerns, please contact to adela.yohana@gmail.com or jiwon1.han@gmail.com.</h4>
+  </div>
+  <div id="homeLinks">
+    @* <p>@Html.ActionLink("See All Doctors", "Index", "Doctors")</p>
+    <p>@Html.ActionLink("See All Patients", "Index", "Patients")</p> *@
+    <p>@Html.ActionLink("Create an Account", "Index", "Account")</p>
+  </div>
+</div>

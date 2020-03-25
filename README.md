@@ -18,7 +18,8 @@
 4. As an adiministrator, I want to assign doctors to the patients, so I can keep track of which specialties patients are seeing.
 5. As an administrator, I want to be able to see a list of all doctors and their specialties, so that I know which medical specialties are offered in the hospital.
 6. As an administrator, I want new patients to have unique Medical Record Numbers (MRN) that auto-increments starting from 202003000 so that each patient can have a unique identifier.
-7. As an administrator, I want to be able to search for a doctor, so I can see their contact info details.
+7. As an administrator, I want to be able to search for a doctor, so I can see their contact info and page them.
+8. As an administrator, I want to be able to search for a patient, so I can look up patient info details.
 
 Parking Lot:
 - Add a class for Appointments(doesn't allow conflicts)
