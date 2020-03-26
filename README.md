@@ -28,6 +28,8 @@ Parking Lot/Improvement Opportunities:
 - Separate Specialty into a different class? Make a join class of DoctorSpecialty
 - Use try/catch functions to make sure there is no duplicates added to the database.
 
+<image src="./DoctorOffice.Solution/DoctorOffice/wwwroot/img/doctorOffice.gif" width="750px" />
+
 ## 2. Development
 ### Tech stack:
 + [.NET CORE](https://dotnet.microsoft.com/download/dotnet-core/) for package management
