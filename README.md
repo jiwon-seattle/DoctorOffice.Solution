@@ -42,7 +42,7 @@ Parking Lot/Improvement Opportunities:
   $ dotnet add package Microsoft.EntityFrameworkCore -v 2.2.0
   $ dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0
   $ dotnet build
-  $ dotnet ef migrations add Initial
+  $ dotnet ef migrations add MigrationName
   $ dotnet ef database update  
   # After successfull pkg installtion
   $ dotnet run
