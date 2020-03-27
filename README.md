@@ -37,7 +37,7 @@ Parking Lot/Improvement Opportunities:
 
 ### To run dev mode locally:
 ```bash
-  $ git clone https://github.com/jiwon-seattle/DoctorOffice.git
+  $ git clone https://github.com/jiwon-seattle/DoctorOffice.Solution.git
   $ cd DoctorOffice.Solution/DoctorOffice
   $ dotnet add package Microsoft.EntityFrameworkCore -v 2.2.0
   $ dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0
